@@ -1,0 +1,57 @@
+<!-- views/partials/header.ejs -->
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-tower"></span>
+                ศูนย์ข้อมูลคดี
+            </a>
+
+        </div>
+
+
+        <div class="navbar navbar-right">
+            <form class="navbar-form pull-left" action="http://localhost/">
+                <select name="" id="" class="form-control">
+                    <option value="1">ค้นหาความผิดทั้งหมด</option>
+                    <option value="2">มาตรา 112</option>
+                    <option value="3">คดีค้ามนุษย์</option>
+                    <option value="4">คดีประมง</option>
+                    <option value="4">คดีความมั่นคง</option>
+                </select>
+                <select name="" id="" class="form-control">
+                    <option value="1">ค้นหาเงื่อนไขทั้งหมด</option>
+                    <option value="2">ตามเลขคดี</option>
+                    <option value="3">ชื่อโจทย์</option>
+                    <option value="4">ชื่อจำเลย</option>
+                </select>
+                <form class="navbar-form navbar-search" role="search">
+                    <div class="input-group">
+
+                        <input type="text" class="form-control">
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-search btn-info" id="searchButton">
+                                <span class="glyphicon glyphicon-search fa-5x"></span>
+                                <span class="label-icon">Search</span>
+                            </button>
+
+                            <span class="glyphicon glyphicon-search "></span>
+                            <input type="submit" class="btn btn-info" value="Search">
+                        </div>
+                    </div>
+                </form>
+            </form>
+        </div>
+
+    </div>
+</nav>
+<!--script src="https://code.jquery.com/jquery-3.2.1.slim.js"></script-->
+<script>
+    $("#searchButton").bind('click', function (event) {
+        alert("click")
+        $("#searchButton").submit();
+    });
+</script>

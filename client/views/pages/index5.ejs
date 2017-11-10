@@ -1,0 +1,163 @@
+<head>
+    <% include ../partials/head %>
+        <% include ./modal5 %>
+</head>
+
+<div class="container">
+
+    <!-- Supreme content  -->
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Title  -->
+            <div class="row">
+                <div class="col-sm-12 list-group-item" style="margin-top:10px !important; background-color: #337ab7; color:white;">
+                    <h4 style="margin-top: 10px !important;" id="supreme_want" class="text-left">ข้อมูลชั้นอุทธรณ์&nbsp;</h4>
+                </div>
+            </div>
+
+            <div id="render_supreme">
+                <hr style="color:#999; margin-top:4px; margin-bottom: 4px;">
+                <hr class="colorgraph">
+                <div class="list-group"></div>
+
+                <!-- Form -->
+                <form>
+                    <div class="row election-data">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationServer601">หมายเลขคดีดำ</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer01" placeholder="หมวดอักษร" required>
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <label for="validationServer602">&nbsp;</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer02" placeholder="เลขคดี" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationServer603">&nbsp;</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="ปี พ.ศ." required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationServer604">วันที่รับอุทธรณ์</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="วันที่รับฎีกา" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationServer601">หมายเลขคดีแดง</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer01" placeholder="หมวดอักษร" required>
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <label for="validationServer602">&nbsp;</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer02" placeholder="เลขคดี" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationServer603">&nbsp;</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="ปี พ.ศ." required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationServer604">วันที่อ่านคำพิพากษา</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="วันที่รับฎีกา" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationServer04">ผลคำพิพากษา</label>
+                                    <div class="form-group">
+                                        <select multiple class="form-control" id="exampleFormControlSelect1">
+                                            <% highJudgementType.forEach(function(list) { %>
+                                                <option>
+                                                    <%= list.name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label for="validationServer09">รายละเอียดคำพิพากษา</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationServer04">กรณียกฟ้อง</label>
+                                    <div class="form-group">
+                                        <select multiple class="form-control" id="exampleFormControlSelect1">
+                                            <% dismissalType.forEach(function(list) { %>
+                                                <option>
+                                                    <%= list.name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label for="validationServer09">ยกฟ้องอื่นๆ(โปรดระบุ)</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="exampleFormControlTextarea1">หมายเหตุ</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3">
+                                    <hr>
+                                    <!-- Form -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal5">เพิ่ม</button>
+                                    <label for="validationServer09">การเลื่อนคดี</label>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ครั้งที่เลื่อน</th>
+                                                <th>วันที่เลื่อน</th>
+                                                <th>เหตุที่เลื่อน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- End : Form -->
+
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 mb-12">
+                                    <button class="btn btn-primary set-left" type="submit">Submit form</button>
+                                </div>
+                            </div>
+                </form>
+                <br>
+                <!-- End : Form-->
+                </div>
+                <!-- End : content -->
+                </div>
+                <!-- End : main -->
+            </div>
+        </div>
+
+    </div>
+    <!-- End : Container -->
+
+</div>
