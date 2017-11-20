@@ -4,6 +4,9 @@ var request = require('request');
 const express = require('express')
 var async = require('async');
 
+//Date convert
+var moment = require('moment');
+
 const app = express()
 const url = "http://10.1.23.235:1337"
 app.set('view engine', 'ejs');
@@ -33,6 +36,18 @@ app.get('/demo', function (req, res) {
 });
 
 app.get('/', function (req, res) {
+
+    request.get(url + "/case?sort=id", (error, response, body) => {
+        let cases = JSON.parse(body);
+        console.log(cases[0])
+        res.render('pages/index', {
+            cases: cases,
+            moment: moment
+        });
+    });
+})
+
+app.get('/add', function (req, res) {
 
     //Get list type
     async.parallel({

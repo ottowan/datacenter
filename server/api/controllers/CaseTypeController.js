@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-    /*index: function (req, res) {
+    getAll: function (req, res) {
         Case.find({}).exec(function (err, cases) {
             console.dir(cases);
             return res.send(cases)
         })
-    },*/
+    },
 };
 

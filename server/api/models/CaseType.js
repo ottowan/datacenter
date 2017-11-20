@@ -19,6 +19,10 @@ module.exports = {
     name: {
       type: 'string',
       columnName: 'name'
+    },
+    abb: {
+      type: 'string',
+      columnName: 'abb'
     }
   }
 };

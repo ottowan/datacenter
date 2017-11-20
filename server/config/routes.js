@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: '404'
   },
-
+  'GET /cases/:case': { controller: "Case", action: "findByID" },
   'GET /accused/case/:case': { controller: "Accused", action: "case" },
   'GET /prosecutor/case/:case': { controller: "Prosecutor", action: "case" },
   /***************************************************************************

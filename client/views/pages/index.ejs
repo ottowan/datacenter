@@ -2,6 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    $(document).ready(function(){ 
+        // jQuery methods go here... 
+        alert("JQuery")
+    });
+</script>
 
 <head>
     <% include ../partials/head %>
@@ -14,71 +20,80 @@
     </header>
 
     <main>
-        <h3>ฟอร์มกรอกข้อมูล</h3>
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a data-toggle="tab" href="#menu1">
-                    <span class="label label-success">1</span> ข้อมูลทั่วไป</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu2">
-                    <span class="label label-success">2</span> ปล่อยชั่วคราวและหมายจับ</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu3">
-                    <span class="label label-success">3</span> ชั้นพิจารณา(1)</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu4">
-                    <span class="label label-success">4</span> ชั้นพิจารณา(2)</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu5">
-                    <span class="label label-success">5</span> ชั้นอุทธรณ์</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu6">
-                    <span class="label label-success">6</span> ชั้นฎีกา</a>
-            </li>
-            <li>
-                <a data-toggle="tab" href="#menu7">
-                    <span class="label label-success">7</span> ข้อมูลชั้นฝากขัง</a>
-            </li>
-        </ul>
 
-        <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
-                <h3>HOME</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</p>
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- Title  -->
+                <div class="row">
+                    <div class="col-sm-12 list-group-item" style="margin-top:10px !important; background-color: #337ab7; color:white;">
+                        <h4 style="margin-top: 10px !important;" id="supreme_want" class="text-left">รายการข้อมูลคดี&nbsp;</h4>
+                        <div class="set-right">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">เพิ่ม</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="render_supreme">
+                    <hr style="color:#999; margin-top:4px; margin-bottom: 4px;">
+                    <hr class="colorgraph">
+                    <div class="list-group"></div>
+
+                    <div class="row election-data">
+                        <div class="col-sm-12">
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ประเภทคดี</th>
+                                        <th>วันรับฟ้อง</th>
+                                        <th>เลขคดีดำ</th>
+                                        <th>วันออกแดง</th>
+                                        <th>เลขคดีแดง</th>
+                                        <th>โจทก์</th>
+                                        <th>จำเลย</th>
+                                        <th>แก้ไข </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var key in cases) { %>
+                                        <tr>
+                                            <td>
+                                                <% for (var nestedKey in cases[key].casetype) { %>
+                                                    <% if(nestedKey == 'abb') { %>
+                                                        <%= cases[key].casetype['abb'] %>
+                                                            <% } %>
+                                                                <% } %>
+
+                                            </td>
+                                            <td>
+                                                <%= moment(cases[key].recieve_date).format( 'MM-DD-YYYY') %>
+                                            </td>
+                                            <td>
+                                                <%= cases[key].black_abb %>
+                                                    <%= cases[key].black_no %>/
+                                                        <%= cases[key].black_year %>
+                                            </td>
+                                            <td>
+                                                <%= moment(cases[key].judgement_date).format( 'MM-DD-YYYY') %>
+                                            </td>
+                                            <td>
+                                                <%= cases[key].red_abb %><%= cases[key].red_no %>/<%= cases[key].red_year %>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                            <!-- End : Form -->
+
+                        </div>
+                    </div>
+                    <!-- End : render -->
+                </div>
             </div>
-            <div id="menu1" class="tab-pane fade">
-                <h3>Menu 1</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div id="menu2" class="tab-pane fade">
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam.
-                </p>
-            </div>
-            <div id="menu3" class="tab-pane fade">
-                <h3>Menu 3</h3>
-                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-            </div>
-            <div id="menu4" class="tab-pane fade">
-                <% include ./index4 %>
-            </div>
-            <div id="menu5" class="tab-pane fade">
-                <% include ./index5 %>
-            </div>
-            <div id="menu6" class="tab-pane fade">
-                <% include ./index6 %>
-            </div>
-            <div id="menu7" class="tab-pane fade">
-                <% include ./index7 %>
-            </div>
+
         </div>
+
+        <!-- End : container -->
     </main>
 
     <br>
