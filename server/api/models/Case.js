@@ -46,11 +46,16 @@ module.exports = {
     },
     judgement_date: {
       type: 'date',
-      columnName: 'judgement_date'
+      columnName: 'judgement_date',
+      required: false
     },
-    injustice_place: {
+    injustice_local: {
       type: 'int',
-      columnName: 'injustice_place'
+      columnName: 'injustice_local'
+    },
+    injustice_inter: {
+      type: 'int',
+      columnName: 'injustice_inter'
     },
     accusation_tail: {
       type: 'string',
@@ -68,8 +73,16 @@ module.exports = {
     },
     casetype: {
       model: 'casetype'
-    }
-
+    },
+	 // Modifies case input before validation
+	  beforeValidate: function(case, cb){
+		// Make sure birthdate is not saved as 0000-00-00
+		if(!case.judgement_date || case.judgement_date == '0000-00-00'){
+		  case.judgement_date = null;
+		}
+		cb();
+	  },
+	},
   }
 };
 
